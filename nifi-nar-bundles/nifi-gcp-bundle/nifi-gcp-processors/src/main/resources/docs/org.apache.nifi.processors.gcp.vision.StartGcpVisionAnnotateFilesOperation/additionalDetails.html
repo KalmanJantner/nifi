@@ -60,7 +60,7 @@
                 }],
             "outputConfig": {
                 "gcsDestination": {
-                    "uri": "gs://${gcs.bucket}/${filename}/"
+                    "uri": "gs://${#{gcs.output.bucket}}/${filename}/"
                 },
                 "batchSize": 2
             }
@@ -88,7 +88,11 @@ You can find more details at <a href="https://cloud.google.com/vision/docs/featu
 <p>Create the following flow</p>
 <img src="vision-annotate-files.png" style="height: 50%; width: 50%"/>
 <p>
-    Keep the default value of JSON PAYLOAD property in StartGcpVisionAnnotateImagesOperation
+    <li>Create an input and output bucket</li>
+    <li>Create a parameter context with <code>gcs.output.bucket</code> and set the value to your output bucket</li>
+    <li>Make sure the input files(s) are available in the input GCS bucket</li>
+    <li>Set the bucket property of ListGCSBucket processor to your input bucket name</li>
+    <li>Keep the default value of JSON PAYLOAD property in StartGcpVisionAnnotateFilesOperation</li>
 </p>
 <p>
     Execution steps:

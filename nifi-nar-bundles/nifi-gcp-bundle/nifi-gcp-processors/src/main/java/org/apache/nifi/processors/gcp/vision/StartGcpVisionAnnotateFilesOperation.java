@@ -61,7 +61,7 @@ public class StartGcpVisionAnnotateFilesOperation extends AbstractStartGcpVision
                     "                }],\n" +
                     "            \"outputConfig\": {\n" +
                     "                \"gcsDestination\": {\n" +
-                    "                    \"uri\": \"gs://${gcs.bucket}/${filename}/\"\n" +
+                    "                    \"uri\": \"gs://${#{gcs.output.bucket}}/${filename}/\"\n" +
                     "                },\n" +
                     "                \"batchSize\": 2\n" +
                     "            }\n" +
